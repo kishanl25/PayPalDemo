@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>AngularJS</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+       
+      <script th:src="@{/main.js}"></script>
+      <link th:href="@{/main.css}" rel="stylesheet" />
+       
+      <head>
+   <body ng-app="LibraryManagement" ng-controller="LibraryController">
+      <h3>
+         CRUD: Spring Boot + Rest + AngularJS
+      </h3>
+      <form ng-submit="submitLibrary()">
+         <table border="0">
+            <tr>
+               <td>Library Id</td>
+               <td>{{libraryForm.libraryId}}</td>
+            </tr>
+            
+            <tr>
+               <td>Library Name</td>
+               <td><input type="text" ng-model="libraryForm.libraryName"  /></td>
+            </tr>
+            <tr>
+               <td colspan="2">
+                  <input type="submit" value="Submit" class="blue-button" />
+               </td>
+            </tr>
+         </table>
+      </form>
+      <br/>
+      <a class="create-button" ng-click="createLibrary()">Create Library</a>
+      <table border="1">
+         <tr>
+            <th>Library Id</th>
+            <th>Library Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+         </tr>
+         <!-- $scope.library -->
+         <tr ng-repeat="library in libraries">
+            <td> {{ library.libraryId }}</td>
+            <td >{{ library.libraryName }}</td>
+            <td>
+            <a ng-click="editLibrary(library)" class="edit-button">Edit</a>
+            </td>
+            <td>
+            <a ng-click="deleteLibrary(library)" class="delete-button">Delete</a>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
