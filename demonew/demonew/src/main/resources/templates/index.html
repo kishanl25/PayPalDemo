@@ -45,7 +45,7 @@
   </div>
   <div data-ng-init="getLibraryDataFromServer()" ng-controller="populateLibrary">
 					<b>Select Library:</b> <select id="libraryModel">
-						<option value="">-- Select Persons --</option>
+						<option value="">-- Select Library --</option>
 						<option data-ng-repeat="libraryModel in libraryNameList" value="{{libraryModel.libraryId}}">{{libraryModel.libraryName}}</option>
 					</select><br>
 				</div>
