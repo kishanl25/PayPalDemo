@@ -41,8 +41,14 @@
     <button id="btn-id" type="button" class="btn btn-primary" ng-click="getfunction()">Get All Libraries</button>
     <ul>
           <li ng-repeat="libraryNameList in response">{{libraryNameList.libraryName}}</li>
-      </ul>
+      </ul>      
   </div>
+  <div data-ng-init="getLibraryDataFromServer()" ng-controller="populateLibrary">
+					<b>Select Library:</b> <select id="libraryModel">
+						<option value="">-- Select Persons --</option>
+						<option data-ng-repeat="libraryModel in libraryNameList" value="{{libraryModel.libraryId}}">{{libraryModel.libraryName}}</option>
+					</select><br>
+				</div>
 </div>
 </body>
 </html>
